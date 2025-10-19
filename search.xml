@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
+    <title>FD泄露</title>
     <url>/2023/10/27/FD%E6%B3%84%E9%9C%B2/</url>
     <content><![CDATA[<p>在 Android（以及任何 Linux/POSIX 系统）中，避免文件描述符（File Descriptor, FD）泄漏是一个至关重要的问题。FD 是一种有限的系统资源，一个进程通常只能打开 1024 个（默认值，可以调整）。如果泄漏的 FD 持续累积，最终会导致应用无法打开任何新的文件、socket 或执行其他需要 FD 的操作，从而引发 Too many open files 错误，导致应用崩溃或功能异常。</p>
 <p>下面我将从Java/Kotlin 层和 C/C++ (NDK) 层两个方面，详细介绍如何避免 FD 泄漏，并提供最佳实践和检测工具。</p>
